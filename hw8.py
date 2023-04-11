@@ -24,7 +24,7 @@ data = data.dropna(axis='rows')      # drop rows with empty data
 
 #Creating more user-friendly option labels
 featureset = list(data.columns.values)
-graphset = ["Histogram", "Box Plot", "Enhanced Box Plot", "Strip Plot", "Violin Plot", "Swarm Plot"]
+graphset = ["Histogram", "Plot", "Box Plot", "Enhanced Box Plot", "Strip Plot", "Violin Plot", "Swarm Plot"]
 
 #Give our dashboard a title
 st.title('Vehicle dashboard')
@@ -51,6 +51,7 @@ with col1:
 with col2:
     fig = plt.figure(figsize=(7, 5))
     if kind1 == "Histogram": sns.histplot(data = data, x = x, kde = kde, color = color1)
+    if kind1 == "Plot" : sns.plot(data = data, x = x, y = y, color = color1)
     if kind1 == "Box Plot": sns.boxplot(data = data, x = x, y = y, hue = hue)
     if kind1 == "Enhanced Box Plot": sns.boxenplot(data = data, x = x, y = y, hue = hue)
     if kind1 == "Strip Plot": sns.stripplot(data = data, x = x, y = y, hue = hue)  
