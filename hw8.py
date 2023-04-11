@@ -24,7 +24,7 @@ data = data.dropna(axis='rows')      # drop rows with empty data
 
 #Creating more user-friendly option labels
 featureset = list(data.columns.values)
-graphset = ["Plot", "Histogram", "Box Plot", "Enhanced Box Plot", "Strip Plot", "Violin Plot", "Swarm Plot"]
+graphset = ["LinePlot", "Histogram", "Box Plot", "Enhanced Box Plot", "Strip Plot", "Violin Plot", "Swarm Plot"]
 
 #Give our dashboard a title
 st.title('Vehicle dashboard')
