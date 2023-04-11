@@ -21,6 +21,8 @@ import plotly.express as px
 data = sns.load_dataset('mpg')
 data = data.dropna(axis='rows')      # drop rows with empty data
 
+# sns.lineplot(data = data, x = "horsepower", y = "weight")
+# plt.show()
 
 #Creating more user-friendly option labels
 featureset = list(data.columns.values)
@@ -38,7 +40,7 @@ st.subheader('Visualization')
 col1, col2 = st.columns(2)
 with col1:
     st.subheader('Choices')
-    title = st.text_input('Chart Title')
+    title = st.text_input('Chart Title', 'Power vs Weight')
     kind1 = st.selectbox('Pick plot for left side', graphset, key="pl")
     x = st.selectbox("Feature for x:", featureset, key="f1l")
     if kind1 != "Histogram":
@@ -59,4 +61,5 @@ with col2:
     if kind1 == "Swarm Plot": sns.swarmplot(data = data, x = x, y = y, hue = hue)
 #User can input a title for the graph
     plt.title(title)
+    sns.set_context("paper", rc={"font.size":8,"axes.titlesize":8,"axes.labelsize":5})
     st.pyplot(fig)
